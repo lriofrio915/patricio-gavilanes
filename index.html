@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Patricio Gavilanes | Angiología y Cirugía Vascular</title>
-    <meta name="description" content="Dr. Patricio Gavilanes. Especialista en Angiología y Cirugía Vascular. Tratamiento de várices, pie diabético y enfermedades circulatorias en Quito y Cumbayá.">
-    
+    <meta name="description"
+        content="Dr. Patricio Gavilanes. Especialista en Angiología y Cirugía Vascular. Tratamiento de várices, pie diabético y enfermedades circulatorias en Quito y Cumbayá.">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Fuentes Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -36,39 +40,50 @@
             }
         }
     </script>
-    
+
     <style>
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
             transform: translateY(20px);
         }
+
         @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .glass-nav {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
+
         /* Degradado vascular sutil */
         .vascular-gradient {
             background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
         }
+
         /* Efecto hover suave para tarjetas de blog y servicios */
         .card-hover {
             transition: all 0.3s ease;
         }
+
         .card-hover:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
+
         /* Asegurar cursor pointer en elementos interactivos */
-        a, button {
+        a,
+        button {
             cursor: pointer;
         }
     </style>
 </head>
+
 <body class="bg-white text-slate-700 font-sans antialiased selection:bg-brand-accent selection:text-white">
 
     <!-- Navegación -->
@@ -81,19 +96,28 @@
                         <i data-lucide="heart-pulse" class="h-6 w-6"></i>
                     </div>
                     <div>
-                        <h1 class="font-heading font-extrabold text-xl text-slate-900 tracking-tight leading-none group-hover:text-brand-600 transition">Dr. Patricio Gavilanes</h1>
-                        <p class="text-[11px] text-brand-accent font-bold tracking-widest uppercase mt-0.5">Angiología y Cirugía Vascular</p>
+                        <h1
+                            class="font-heading font-extrabold text-xl text-slate-900 tracking-tight leading-none group-hover:text-brand-600 transition">
+                            Dr. Patricio Gavilanes</h1>
+                        <p class="text-[11px] text-brand-accent font-bold tracking-widest uppercase mt-0.5">Angiología y
+                            Cirugía Vascular</p>
                     </div>
                 </div>
 
                 <!-- Menú Escritorio -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#inicio" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Inicio</a>
-                    <a href="#especialidad" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Perfil</a>
-                    <a href="#servicios" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Servicios</a>
-                    <a href="#blog" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Blog</a>
-                    <a href="#ubicacion" class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Ubicaciones</a>
-                    <a href="https://wa.me/593999061838" target="_blank" class="bg-brand-accent hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold transition shadow-lg shadow-red-500/20 flex items-center gap-2 transform hover:-translate-y-0.5">
+                    <a href="#inicio"
+                        class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Inicio</a>
+                    <a href="#especialidad"
+                        class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Perfil</a>
+                    <a href="#servicios"
+                        class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Servicios</a>
+                    <a href="#blog"
+                        class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Blog</a>
+                    <a href="#ubicacion"
+                        class="text-sm font-semibold text-slate-600 hover:text-brand-600 transition uppercase tracking-wide">Ubicaciones</a>
+                    <a href="https://wa.me/593999061838" target="_blank"
+                        class="bg-brand-accent hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold transition shadow-lg shadow-red-500/20 flex items-center gap-2 transform hover:-translate-y-0.5">
                         <i data-lucide="calendar" class="w-4 h-4"></i> Agendar Cita
                     </a>
                 </div>
@@ -108,12 +132,19 @@
         <!-- Menú Móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
             <div class="px-4 py-4 space-y-3">
-                <a href="#inicio" class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Inicio</a>
-                <a href="#especialidad" class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Perfil</a>
-                <a href="#servicios" class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Tratamientos</a>
-                <a href="#blog" class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Investigaciones</a>
-                <a href="#ubicacion" class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Consultorios</a>
-                <a href="https://wa.me/593999061838" class="block px-4 py-3 rounded-lg font-bold text-white bg-brand-accent hover:bg-red-700 transition text-center">Agendar por WhatsApp</a>
+                <a href="#inicio"
+                    class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Inicio</a>
+                <a href="#especialidad"
+                    class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Perfil</a>
+                <a href="#servicios"
+                    class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Tratamientos</a>
+                <a href="#blog"
+                    class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Investigaciones</a>
+                <a href="#ubicacion"
+                    class="block px-4 py-3 rounded-lg font-bold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition">Consultorios</a>
+                <a href="https://wa.me/593999061838"
+                    class="block px-4 py-3 rounded-lg font-bold text-white bg-brand-accent hover:bg-red-700 transition text-center">Agendar
+                    por WhatsApp</a>
             </div>
         </div>
     </nav>
@@ -122,33 +153,39 @@
     <section id="inicio" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-50">
         <!-- Fondo Abstracto Vascular -->
         <div class="absolute top-0 right-0 w-1/2 h-full bg-blue-50/50 rounded-bl-[100px] hidden lg:block"></div>
-        
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
-                
+
                 <!-- Texto Hero -->
                 <div class="text-center lg:text-left mb-12 lg:mb-0 fade-in-up">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-brand-600 text-xs font-bold uppercase tracking-wider mb-6">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-brand-600 text-xs font-bold uppercase tracking-wider mb-6">
                         <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
                         Salud Vascular Integral
                     </div>
                     <h1 class="text-4xl lg:text-6xl font-heading font-extrabold text-slate-900 leading-tight mb-6">
                         Cuidamos tu circulación, <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-accent">mejoramos tu vida.</span>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-accent">mejoramos
+                            tu vida.</span>
                     </h1>
                     <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                        Especialista en el diagnóstico y tratamiento avanzado de várices, pie diabético y enfermedades circulatorias. Tecnología láser y procedimientos mínimamente invasivos.
+                        Especialista en el diagnóstico y tratamiento avanzado de várices, pie diabético y enfermedades
+                        circulatorias. Tecnología láser y procedimientos mínimamente invasivos.
                     </p>
-                    
+
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#ubicacion" class="vascular-gradient hover:opacity-90 text-white text-lg px-8 py-4 rounded-xl font-bold shadow-xl shadow-blue-500/20 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <a href="#ubicacion"
+                            class="vascular-gradient hover:opacity-90 text-white text-lg px-8 py-4 rounded-xl font-bold shadow-xl shadow-blue-500/20 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
                             Ver Consultorios
                         </a>
-                        <a href="#servicios" class="bg-white hover:bg-gray-50 text-slate-700 border border-gray-200 text-lg px-8 py-4 rounded-xl font-bold transition flex items-center justify-center gap-2 shadow-sm hover:-translate-y-0.5 hover:shadow-md">
+                        <a href="#servicios"
+                            class="bg-white hover:bg-gray-50 text-slate-700 border border-gray-200 text-lg px-8 py-4 rounded-xl font-bold transition flex items-center justify-center gap-2 shadow-sm hover:-translate-y-0.5 hover:shadow-md">
                             Nuestros Servicios
                         </a>
                     </div>
-                    
+
                     <!-- Stats / Confianza -->
                     <div class="mt-10 grid grid-cols-3 gap-6 border-t border-slate-200 pt-8">
                         <div>
@@ -165,19 +202,22 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Imagen Principal (FOTO OFICIAL 1) -->
                 <div class="relative fade-in-up flex justify-center" style="animation-delay: 0.2s;">
-                    <div class="absolute -inset-4 bg-gradient-to-tr from-brand-600 to-brand-accent rounded-full opacity-10 blur-2xl"></div>
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-tr from-brand-600 to-brand-accent rounded-full opacity-10 blur-2xl">
+                    </div>
                     <!-- IMAGEN ACTUALIZADA CON LINK OFICIAL HERO -->
-                    <img src="https://drpatriciogavilanes.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FHero.4ac64d80.png&w=1920&q=75" 
-                         alt="Dr. Patricio Gavilanes" 
-                         class="relative rounded-2xl shadow-2xl w-full max-w-lg object-cover border-8 border-white bg-slate-100">
-                    
+                    <img src="https://i.ibb.co/J0R7MSX/1-octor-vascular.jpg" alt="Dr. Patricio Gavilanes"
+                        class="relative rounded-2xl shadow-2xl w-full max-w-lg object-cover border-8 border-white bg-slate-100">
+
                     <!-- Tarjeta Flotante -->
-                    <div class="absolute bottom-8 -right-4 bg-white p-5 rounded-xl shadow-xl border-l-4 border-brand-accent max-w-xs hidden md:block hover:shadow-2xl transition">
+                    <div
+                        class="absolute bottom-8 -right-4 bg-white p-5 rounded-xl shadow-xl border-l-4 border-brand-accent max-w-xs hidden md:block hover:shadow-2xl transition">
                         <h4 class="font-bold text-slate-900">Dr. Patricio Gavilanes</h4>
-                        <p class="text-sm text-slate-500 mt-1">"Mi compromiso es proporcionar un cuidado excepcional basado en experiencia clínica especializada."</p>
+                        <p class="text-sm text-slate-500 mt-1">"Mi compromiso es proporcionar un cuidado excepcional
+                            basado en experiencia clínica especializada."</p>
                     </div>
                 </div>
             </div>
@@ -190,16 +230,19 @@
             <div class="lg:flex lg:items-center lg:gap-16">
                 <div class="lg:w-1/2 mb-10 lg:mb-0 relative group">
                     <!-- Decoración fondo foto secundaria -->
-                    <div class="absolute top-0 left-0 w-20 h-20 bg-brand-100 rounded-full -translate-x-10 -translate-y-10 z-0 group-hover:bg-brand-200 transition"></div>
+                    <div
+                        class="absolute top-0 left-0 w-20 h-20 bg-brand-100 rounded-full -translate-x-10 -translate-y-10 z-0 group-hover:bg-brand-200 transition">
+                    </div>
                     <!-- IMAGEN ACTUALIZADA CON LINK OFICIAL SECUNDARIO -->
-                    <img src="https://drpatriciogavilanes.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero5.ab6307a5.png&w=640&q=50" 
-                         alt="Consulta Vascular Dr. Gavilanes" 
-                         class="rounded-2xl shadow-lg relative z-10 w-full object-cover group-hover:shadow-xl transition">
+                    <img src="https://i.ibb.co/vvQwvkNx/2-doctor-vascular.jpg" alt="Consulta Vascular Dr. Gavilanes"
+                        class="rounded-2xl shadow-lg relative z-10 w-full object-cover group-hover:shadow-xl transition">
                 </div>
                 <div class="lg:w-1/2">
                     <h2 class="text-3xl font-heading font-bold text-slate-900 mb-6">Angiología y Cirugía Vascular</h2>
                     <p class="text-slate-600 text-lg leading-relaxed mb-6">
-                        La especialidad se dedica al estudio, prevención, diagnóstico y tratamiento de la patología vascular (venas y arterias). El Dr. Gavilanes combina formación académica rigurosa con un trato cálido y personalizado, utilizando técnicas modernas para asegurar su recuperación.
+                        La especialidad se dedica al estudio, prevención, diagnóstico y tratamiento de la patología
+                        vascular (venas y arterias). El Dr. Gavilanes combina formación académica rigurosa con un trato
+                        cálido y personalizado, utilizando técnicas modernas para asegurar su recuperación.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
@@ -208,7 +251,8 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="check-circle-2" class="text-brand-accent flex-shrink-0 mt-1"></i>
-                            <span class="text-slate-700">Manejo integral del Pie Diabético y salvamento de extremidades.</span>
+                            <span class="text-slate-700">Manejo integral del Pie Diabético y salvamento de
+                                extremidades.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i data-lucide="check-circle-2" class="text-brand-accent flex-shrink-0 mt-1"></i>
@@ -226,35 +270,48 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-heading font-bold text-slate-900">Nuestra Filosofía</h2>
                 <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 mb-6 rounded-full"></div>
-                <p class="text-slate-600 max-w-2xl mx-auto">Compromiso inquebrantable con la excelencia médica, la ética profesional y el bienestar de nuestros pacientes.</p>
+                <p class="text-slate-600 max-w-2xl mx-auto">Compromiso inquebrantable con la excelencia médica, la ética
+                    profesional y el bienestar de nuestros pacientes.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Tarjeta Misión -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-brand-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-brand-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="target" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Nuestra Misión</h3>
-                    <p class="text-slate-500 leading-relaxed">Proporcionar atención médica vascular de la más alta calidad, utilizando tecnología avanzada y un enfoque humano para mejorar la salud y calidad de vida de cada paciente.</p>
+                    <p class="text-slate-500 leading-relaxed">Proporcionar atención médica vascular de la más alta
+                        calidad, utilizando tecnología avanzada y un enfoque humano para mejorar la salud y calidad de
+                        vida de cada paciente.</p>
                 </div>
 
                 <!-- Tarjeta Ética -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-brand-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-brand-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="shield-check" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Ética y Valores</h3>
-                    <p class="text-slate-500 leading-relaxed">Actuamos con integridad, honestidad y transparencia. Priorizamos la seguridad y el bienestar del paciente en cada decisión médica, respetando su dignidad.</p>
+                    <p class="text-slate-500 leading-relaxed">Actuamos con integridad, honestidad y transparencia.
+                        Priorizamos la seguridad y el bienestar del paciente en cada decisión médica, respetando su
+                        dignidad.</p>
                 </div>
 
                 <!-- Tarjeta Experiencia -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-brand-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-brand-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="award" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Experiencia Comprobada</h3>
-                    <p class="text-slate-500 leading-relaxed">Más de 15 años de trayectoria en el diagnóstico y tratamiento de enfermedades vasculares complejas, con miles de procedimientos exitosos y pacientes satisfechos.</p>
+                    <p class="text-slate-500 leading-relaxed">Más de 15 años de trayectoria en el diagnóstico y
+                        tratamiento de enfermedades vasculares complejas, con miles de procedimientos exitosos y
+                        pacientes satisfechos.</p>
                 </div>
             </div>
         </div>
@@ -266,62 +323,81 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-heading font-bold text-slate-900">Servicios Especializados</h2>
                 <div class="w-16 h-1 bg-brand-accent mx-auto mt-4 mb-6 rounded-full"></div>
-                <p class="text-slate-600 max-w-2xl mx-auto">Soluciones médicas integrales para patologías venosas y arteriales con tecnología de vanguardia.</p>
+                <p class="text-slate-600 max-w-2xl mx-auto">Soluciones médicas integrales para patologías venosas y
+                    arteriales con tecnología de vanguardia.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Servicio 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="activity" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Várices y Arañas Vasculares</h3>
-                    <p class="text-slate-500 leading-relaxed">Eliminación estética y funcional de várices mediante escleroterapia y láser sin cirugía abierta.</p>
+                    <p class="text-slate-500 leading-relaxed">Eliminación estética y funcional de várices mediante
+                        escleroterapia y láser sin cirugía abierta.</p>
                 </div>
 
                 <!-- Servicio 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="footprints" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Pie Diabético</h3>
-                    <p class="text-slate-500 leading-relaxed">Prevención y salvamento de extremidades. Cuidado especializado de úlceras y heridas complejas.</p>
+                    <p class="text-slate-500 leading-relaxed">Prevención y salvamento de extremidades. Cuidado
+                        especializado de úlceras y heridas complejas.</p>
                 </div>
 
                 <!-- Servicio 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="alert-circle" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Trombosis Venosa</h3>
-                    <p class="text-slate-500 leading-relaxed">Diagnóstico temprano y tratamiento anticoagulante para prevenir complicaciones graves.</p>
+                    <p class="text-slate-500 leading-relaxed">Diagnóstico temprano y tratamiento anticoagulante para
+                        prevenir complicaciones graves.</p>
                 </div>
 
                 <!-- Servicio 4 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="heart" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Enfermedad Arterial</h3>
-                    <p class="text-slate-500 leading-relaxed">Tratamiento para mala circulación, dolor al caminar (claudicación) y obstrucciones arteriales.</p>
+                    <p class="text-slate-500 leading-relaxed">Tratamiento para mala circulación, dolor al caminar
+                        (claudicación) y obstrucciones arteriales.</p>
                 </div>
 
                 <!-- Servicio 5 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="baby" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Anomalías Vasculares</h3>
-                    <p class="text-slate-500 leading-relaxed">Atención especializada para malformaciones vasculares congénitas en niños y adultos.</p>
+                    <p class="text-slate-500 leading-relaxed">Atención especializada para malformaciones vasculares
+                        congénitas en niños y adultos.</p>
                 </div>
 
                 <!-- Servicio 6 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
-                    <div class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition group border border-slate-100 card-hover">
+                    <div
+                        class="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center text-brand-600 mb-6 group-hover:bg-brand-600 group-hover:text-white transition">
                         <i data-lucide="file-plus" class="h-7 w-7"></i>
                     </div>
                     <h3 class="text-xl font-bold text-slate-900 mb-3">Puerto Subcutáneo</h3>
-                    <p class="text-slate-500 leading-relaxed">Colocación segura de accesos vasculares implantables para quimioterapia o tratamientos prolongados.</p>
+                    <p class="text-slate-500 leading-relaxed">Colocación segura de accesos vasculares implantables para
+                        quimioterapia o tratamientos prolongados.</p>
                 </div>
             </div>
         </div>
@@ -334,83 +410,124 @@
                 <div class="max-w-2xl">
                     <span class="text-brand-600 font-bold tracking-wider uppercase text-xs">Actualidad Médica</span>
                     <h2 class="text-3xl font-heading font-bold text-slate-900 mt-2">Investigaciones y Publicaciones</h2>
-                    <p class="text-slate-600 mt-4">Manténgase informado con los últimos avances en angiología y artículos de interés escritos por el Dr. Gavilanes.</p>
+                    <p class="text-slate-600 mt-4">Manténgase informado con los últimos avances en angiología y
+                        artículos de interés escritos por el Dr. Gavilanes.</p>
                 </div>
                 <!-- Botón opcional de 'Ver todo' si hubiera más -->
-                <a href="#" class="hidden md:flex items-center gap-2 text-brand-600 font-bold hover:text-brand-accent transition group">
-                    Ver todos los artículos <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                <a href="#"
+                    class="hidden md:flex items-center gap-2 text-brand-600 font-bold hover:text-brand-accent transition group">
+                    Ver todos los artículos <i data-lucide="arrow-right"
+                        class="w-4 h-4 group-hover:translate-x-1 transition"></i>
                 </a>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
+
                 <!-- Blog Post 1 -->
-                <article class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
+                <article
+                    class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
                     <div class="h-40 overflow-hidden relative group">
                         <!-- Imagen arreglada -->
-                        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Investigación médica sobre venas">
-                        <div class="absolute top-2 left-2 bg-brand-500 text-white text-[10px] font-bold px-2 py-1 rounded">INVESTIGACIÓN</div>
+                        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=600&auto=format&fit=crop"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                            alt="Investigación médica sobre venas">
+                        <div
+                            class="absolute top-2 left-2 bg-brand-500 text-white text-[10px] font-bold px-2 py-1 rounded">
+                            INVESTIGACIÓN</div>
                     </div>
                     <div class="p-5 flex-1 flex flex-col">
-                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">Avances en el tratamiento de la insuficiencia venosa</h3>
-                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Descubra cómo las nuevas tecnologías láser están revolucionando la recuperación de pacientes con várices.</p>
-                        <a href="https://drpatriciogavilanes.com/demo-post-1" target="_blank" class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
-                            Leer artículo <i data-lucide="external-link" class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
+                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">
+                            Avances en el tratamiento de la insuficiencia venosa</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Descubra cómo las nuevas tecnologías
+                            láser están revolucionando la recuperación de pacientes con várices.</p>
+                        <a href="https://drpatriciogavilanes.com/demo-post-1" target="_blank"
+                            class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
+                            Leer artículo <i data-lucide="external-link"
+                                class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post 2 -->
-                <article class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
+                <article
+                    class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
                     <div class="h-40 overflow-hidden relative group">
-                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Salud y prevención">
-                        <div class="absolute top-2 left-2 bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded">PREVENCIÓN</div>
+                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=600&auto=format&fit=crop"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                            alt="Salud y prevención">
+                        <div
+                            class="absolute top-2 left-2 bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded">
+                            PREVENCIÓN</div>
                     </div>
                     <div class="p-5 flex-1 flex flex-col">
-                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">Guía completa para el cuidado del pie diabético</h3>
-                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Consejos prácticos y señales de alerta para prevenir complicaciones en pacientes con diabetes.</p>
-                        <a href="https://drpatriciogavilanes.com/demo-post-2" target="_blank" class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
-                            Leer artículo <i data-lucide="external-link" class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
+                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">
+                            Guía completa para el cuidado del pie diabético</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Consejos prácticos y señales de
+                            alerta para prevenir complicaciones en pacientes con diabetes.</p>
+                        <a href="https://drpatriciogavilanes.com/demo-post-2" target="_blank"
+                            class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
+                            Leer artículo <i data-lucide="external-link"
+                                class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post 3 -->
-                <article class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
+                <article
+                    class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
                     <div class="h-40 overflow-hidden relative group">
-                        <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Tecnología vascular">
-                        <div class="absolute top-2 left-2 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded">TECNOLOGÍA</div>
+                        <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=600&auto=format&fit=crop"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                            alt="Tecnología vascular">
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded">
+                            TECNOLOGÍA</div>
                     </div>
                     <div class="p-5 flex-1 flex flex-col">
-                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">Cirugía endovascular: Beneficios y procedimientos</h3>
-                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Explicación detallada sobre los procedimientos mínimamente invasivos que realizamos en el consultorio.</p>
-                        <a href="https://drpatriciogavilanes.com/demo-post-3" target="_blank" class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
-                            Leer artículo <i data-lucide="external-link" class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
+                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">
+                            Cirugía endovascular: Beneficios y procedimientos</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Explicación detallada sobre los
+                            procedimientos mínimamente invasivos que realizamos en el consultorio.</p>
+                        <a href="https://drpatriciogavilanes.com/demo-post-3" target="_blank"
+                            class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
+                            Leer artículo <i data-lucide="external-link"
+                                class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
                         </a>
                     </div>
                 </article>
 
                 <!-- Blog Post 4 -->
-                <article class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
+                <article
+                    class="bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm card-hover transition duration-300 flex flex-col h-full">
                     <div class="h-40 overflow-hidden relative group">
-                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Casos clínicos">
-                        <div class="absolute top-2 left-2 bg-purple-500 text-white text-[10px] font-bold px-2 py-1 rounded">CASOS</div>
+                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=600&auto=format&fit=crop"
+                            class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                            alt="Casos clínicos">
+                        <div
+                            class="absolute top-2 left-2 bg-purple-500 text-white text-[10px] font-bold px-2 py-1 rounded">
+                            CASOS</div>
                     </div>
                     <div class="p-5 flex-1 flex flex-col">
-                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">Recuperando la calidad de vida: Testimonios</h3>
-                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Historias reales de pacientes que superaron problemas circulatorios crónicos con éxito.</p>
-                        <a href="https://drpatriciogavilanes.com/demo-post-4" target="_blank" class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
-                            Leer artículo <i data-lucide="external-link" class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
+                        <h3 class="font-bold text-slate-900 mb-2 line-clamp-2 group-hover:text-brand-600 transition">
+                            Recuperando la calidad de vida: Testimonios</h3>
+                        <p class="text-slate-500 text-sm mb-4 line-clamp-3 flex-1">Historias reales de pacientes que
+                            superaron problemas circulatorios crónicos con éxito.</p>
+                        <a href="https://drpatriciogavilanes.com/demo-post-4" target="_blank"
+                            class="text-brand-600 text-sm font-bold hover:text-brand-accent flex items-center gap-1 mt-auto group">
+                            Leer artículo <i data-lucide="external-link"
+                                class="w-3 h-3 group-hover:translate-x-0.5 transition"></i>
                         </a>
                     </div>
                 </article>
 
             </div>
-            
+
             <!-- Botón móvil ver más -->
             <div class="mt-8 text-center md:hidden">
-                <a href="#" class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-accent transition border border-brand-200 px-4 py-2 rounded-full group">
-                    Ver todos los artículos <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                <a href="#"
+                    class="inline-flex items-center gap-2 text-brand-600 font-bold hover:text-brand-accent transition border border-brand-200 px-4 py-2 rounded-full group">
+                    Ver todos los artículos <i data-lucide="arrow-right"
+                        class="w-4 h-4 group-hover:translate-x-1 transition"></i>
                 </a>
             </div>
         </div>
@@ -425,20 +542,29 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
-                
+
                 <!-- Ubicación 1: QUITO -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition duration-300 group card-hover">
+                <div
+                    class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition duration-300 group card-hover">
                     <div class="h-48 bg-slate-200 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Edificio Centro Médico Metropolitano">
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold shadow-sm">QUITO NORTE</div>
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                            alt="Edificio Centro Médico Metropolitano">
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold shadow-sm">
+                            QUITO NORTE</div>
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-heading font-bold text-brand-900 mb-1 group-hover:text-brand-600 transition">Centro Médico Metropolitano</h3>
+                        <h3
+                            class="text-2xl font-heading font-bold text-brand-900 mb-1 group-hover:text-brand-600 transition">
+                            Centro Médico Metropolitano</h3>
                         <p class="text-slate-500 font-medium mb-6">Piso 2, Consultorio 210</p>
-                        
+
                         <div class="space-y-4 mb-8">
                             <div class="flex items-start gap-3">
-                                <div class="bg-slate-50 p-2 rounded-full text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                                <div
+                                    class="bg-slate-50 p-2 rounded-full text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i></div>
                                 <p class="text-slate-600 text-sm leading-relaxed mt-1">
                                     <strong>Dirección:</strong><br>
                                     C.B N31-190 y Av. Mariana de Jesús<br>
@@ -447,25 +573,35 @@
                             </div>
                         </div>
 
-                        <a href="https://maps.app.goo.gl/bk3YZJWWxbJh4upLA?g_st=iw" target="_blank" class="block w-full text-center bg-white border border-brand-200 text-brand-600 hover:bg-brand-600 hover:text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-md">
+                        <a href="https://maps.app.goo.gl/bk3YZJWWxbJh4upLA?g_st=iw" target="_blank"
+                            class="block w-full text-center bg-white border border-brand-200 text-brand-600 hover:bg-brand-600 hover:text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-md">
                             <i data-lucide="navigation" class="w-4 h-4"></i> Ir con Google Maps
                         </a>
                     </div>
                 </div>
 
                 <!-- Ubicación 2: CUMBAYÁ -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition duration-300 group card-hover">
+                <div
+                    class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition duration-300 group card-hover">
                     <div class="h-48 bg-slate-200 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Hospital de los Valles">
-                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold shadow-sm">CUMBAYÁ</div>
+                        <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=800&auto=format&fit=crop"
+                            class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                            alt="Hospital de los Valles">
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold shadow-sm">
+                            CUMBAYÁ</div>
                     </div>
                     <div class="p-8">
-                        <h3 class="text-2xl font-heading font-bold text-brand-900 mb-1 group-hover:text-brand-600 transition">Hospital de los Valles</h3>
+                        <h3
+                            class="text-2xl font-heading font-bold text-brand-900 mb-1 group-hover:text-brand-600 transition">
+                            Hospital de los Valles</h3>
                         <p class="text-slate-500 font-medium mb-6">Consultorio 334, Provital</p>
-                        
+
                         <div class="space-y-4 mb-8">
                             <div class="flex items-start gap-3">
-                                <div class="bg-slate-50 p-2 rounded-full text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                                <div
+                                    class="bg-slate-50 p-2 rounded-full text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i></div>
                                 <p class="text-slate-600 text-sm leading-relaxed mt-1">
                                     <strong>Dirección:</strong><br>
                                     Av. Interoceánica Km 12½ y Av. Florencia<br>
@@ -474,7 +610,8 @@
                             </div>
                         </div>
 
-                        <a href="https://goo.gl/maps/genericHDLVLink" target="_blank" class="block w-full text-center bg-white border border-brand-200 text-brand-600 hover:bg-brand-600 hover:text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-md">
+                        <a href="https://goo.gl/maps/genericHDLVLink" target="_blank"
+                            class="block w-full text-center bg-white border border-brand-200 text-brand-600 hover:bg-brand-600 hover:text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 hover:-translate-y-0.5 hover:shadow-md">
                             <i data-lucide="navigation" class="w-4 h-4"></i> Ir con Google Maps
                         </a>
                     </div>
@@ -489,31 +626,46 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-10 mb-8">
                 <div>
-                    <h3 class="text-xl font-heading font-bold text-white mb-4 flex items-center gap-2 group cursor-pointer" onclick="window.scrollTo(0,0)">
-                        <i data-lucide="heart-pulse" class="text-brand-accent group-hover:text-white transition"></i> 
+                    <h3 class="text-xl font-heading font-bold text-white mb-4 flex items-center gap-2 group cursor-pointer"
+                        onclick="window.scrollTo(0,0)">
+                        <i data-lucide="heart-pulse" class="text-brand-accent group-hover:text-white transition"></i>
                         <span class="group-hover:text-brand-accent transition">Dr. Patricio Gavilanes</span>
                     </h3>
                     <p class="text-sm leading-relaxed text-slate-400">
-                        Comprometidos con tu salud vascular. Diagnóstico y tratamiento integral de enfermedades venosas y arteriales con calidad humana y tecnología de punta.
+                        Comprometidos con tu salud vascular. Diagnóstico y tratamiento integral de enfermedades venosas
+                        y arteriales con calidad humana y tecnología de punta.
                     </p>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#inicio" class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Inicio</a></li>
-                        <li><a href="#especialidad" class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Perfil Profesional</a></li>
-                        <li><a href="#servicios" class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Tratamientos</a></li>
-                        <li><a href="#blog" class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Blog e Investigación</a></li>
-                        <li><a href="#ubicacion" class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Cómo llegar</a></li>
+                        <li><a href="#inicio"
+                                class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Inicio</a>
+                        </li>
+                        <li><a href="#especialidad"
+                                class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Perfil
+                                Profesional</a></li>
+                        <li><a href="#servicios"
+                                class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Tratamientos</a>
+                        </li>
+                        <li><a href="#blog"
+                                class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Blog e
+                                Investigación</a></li>
+                        <li><a href="#ubicacion"
+                                class="hover:text-brand-accent transition hover:translate-x-1 inline-block">Cómo
+                                llegar</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-4">Contacto</h4>
                     <div class="flex flex-col gap-3">
-                        <a href="https://wa.me/593999061838" target="_blank" class="inline-flex items-center gap-2 text-brand-accent hover:text-white transition font-bold text-lg group">
-                            <i data-lucide="message-circle" class="group-hover:scale-110 transition"></i> +593 99 906 1838
+                        <a href="https://wa.me/593999061838" target="_blank"
+                            class="inline-flex items-center gap-2 text-brand-accent hover:text-white transition font-bold text-lg group">
+                            <i data-lucide="message-circle" class="group-hover:scale-110 transition"></i> +593 99 906
+                            1838
                         </a>
-                        <a href="mailto:info@drpatriciogavilanes.com" class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition text-sm">
+                        <a href="mailto:info@drpatriciogavilanes.com"
+                            class="inline-flex items-center gap-2 text-slate-400 hover:text-white transition text-sm">
                             <i data-lucide="mail" class="w-4 h-4"></i> info@drpatriciogavilanes.com
                         </a>
                     </div>
@@ -527,11 +679,15 @@
     </footer>
 
     <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/593999061838?text=Hola%20Dr.%20Gavilanes,%20deseo%20agendar%20una%20cita%20para%20valoración%20vascular." 
-       target="_blank" 
-       class="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110 flex items-center justify-center group hover:-translate-y-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-        <span class="absolute right-full mr-3 bg-white text-slate-800 px-3 py-1 rounded-lg text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none">
+    <a href="https://wa.me/593999061838?text=Hola%20Dr.%20Gavilanes,%20deseo%20agendar%20una%20cita%20para%20valoración%20vascular."
+        target="_blank"
+        class="fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-2xl z-50 transition transform hover:scale-110 flex items-center justify-center group hover:-translate-y-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+        </svg>
+        <span
+            class="absolute right-full mr-3 bg-white text-slate-800 px-3 py-1 rounded-lg text-sm font-bold shadow-lg opacity-0 group-hover:opacity-100 transition whitespace-nowrap pointer-events-none">
             ¡Agendar Cita!
         </span>
     </a>
@@ -540,11 +696,12 @@
     <script>
         lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
-        
+
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
         menu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => menu.classList.add('hidden')));
     </script>
 </body>
+
 </html>
