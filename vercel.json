@@ -3,9 +3,9 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.drpatriciogavilanes.com" }],
-      "destination": "https://drpatriciogavilanes.com/:path*",
+      "destination": "https://drpatriciogavilanes.com/$1",
       "permanent": true
     }
   ],
