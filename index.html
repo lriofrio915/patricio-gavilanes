@@ -108,14 +108,14 @@
             { "@id": "https://drpatriciogavilanes.com/#cumbaya" }
           ],
           "availableService": [
-            { "@type": "MedicalProcedure", "name": "Tratamiento de várices con endoláser" },
-            { "@type": "MedicalProcedure", "name": "Escleroterapia de arañas vasculares" },
-            { "@type": "MedicalTherapy", "name": "Manejo integral del pie diabético" },
-            { "@type": "MedicalTherapy", "name": "Tratamiento de trombosis venosa profunda" },
-            { "@type": "MedicalProcedure", "name": "Tratamiento de enfermedad arterial periférica" },
-            { "@type": "MedicalProcedure", "name": "Tratamiento de malformaciones vasculares" },
-            { "@type": "MedicalProcedure", "name": "Colocación de puerto subcutáneo (catéter implantable)" },
-            { "@type": "MedicalTest", "name": "Eco Doppler vascular" }
+            { "@type": "MedicalProcedure", "name": "Tratamiento de várices con endoláser", "url": "https://drpatriciogavilanes.com/tratamientos/varices-endolaser" },
+            { "@type": "MedicalProcedure", "name": "Escleroterapia de arañas vasculares", "url": "https://drpatriciogavilanes.com/tratamientos/aranas-vasculares" },
+            { "@type": "MedicalTherapy", "name": "Manejo integral del pie diabético", "url": "https://drpatriciogavilanes.com/tratamientos/pie-diabetico" },
+            { "@type": "MedicalTherapy", "name": "Tratamiento de trombosis venosa profunda", "url": "https://drpatriciogavilanes.com/tratamientos/trombosis-venosa" },
+            { "@type": "MedicalProcedure", "name": "Tratamiento de enfermedad arterial periférica", "url": "https://drpatriciogavilanes.com/tratamientos/enfermedad-arterial" },
+            { "@type": "MedicalProcedure", "name": "Tratamiento de malformaciones vasculares", "url": "https://drpatriciogavilanes.com/tratamientos/malformaciones-vasculares" },
+            { "@type": "MedicalProcedure", "name": "Colocación de puerto subcutáneo (catéter implantable)", "url": "https://drpatriciogavilanes.com/tratamientos/puerto-subcutaneo" },
+            { "@type": "MedicalTest", "name": "Eco Doppler vascular", "url": "https://drpatriciogavilanes.com/tratamientos/eco-doppler-vascular" }
           ]
         },
         {
@@ -380,6 +380,8 @@
         .service p { font-size: .95rem; color: var(--muted); margin-top: 10px; flex: 1; }
         .service a { margin-top: 18px; display: inline-flex; align-items: center; gap: .4rem; font-size: .9rem; font-weight: 600; color: var(--red); }
         .service a .i { transition: transform .2s; }
+        .service h3 a { margin: 0; display: inline; font: inherit; color: inherit; }
+        .service h3 a:hover { color: var(--red); }
         .service a:hover .i { transform: translateX(4px); }
 
         /* Tecnología */
@@ -690,49 +692,49 @@
                 <div class="services">
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-zap"/></svg></span>
-                        <h3>Várices con endoláser</h3>
+                        <h3><a href="/tratamientos/varices-endolaser">Várices con endoláser</a></h3>
                         <p>Cierre de la vena enferma desde su interior con fibra láser, sin cirugía abierta. Camina el mismo día y vuelve pronto a su rutina.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20tratamiento%20de%20v%C3%A1rices%20con%20endol%C3%A1ser." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-drop"/></svg></span>
-                        <h3>Arañas vasculares</h3>
+                        <h3><a href="/tratamientos/aranas-vasculares">Arañas vasculares</a></h3>
                         <p>Escleroterapia para eliminar arañitas y venas pequeñas: mejora estética y alivio de molestias en pocas sesiones.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20informaci%C3%B3n%20sobre%20el%20tratamiento%20de%20ara%C3%B1as%20vasculares." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-foot"/></svg></span>
-                        <h3>Pie diabético</h3>
+                        <h3><a href="/tratamientos/pie-diabetico">Pie diabético</a></h3>
                         <p>Prevención, curación de úlceras y heridas complejas y salvamento de extremidades con manejo integral.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20una%20valoraci%C3%B3n%20por%20pie%20diab%C3%A9tico." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-alert"/></svg></span>
-                        <h3>Trombosis venosa</h3>
+                        <h3><a href="/tratamientos/trombosis-venosa">Trombosis venosa</a></h3>
                         <p>Diagnóstico oportuno y tratamiento de coágulos en las venas para prevenir complicaciones como la embolia pulmonar.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20una%20valoraci%C3%B3n%20por%20trombosis%20venosa." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-activity"/></svg></span>
-                        <h3>Enfermedad arterial</h3>
+                        <h3><a href="/tratamientos/enfermedad-arterial">Enfermedad arterial</a></h3>
                         <p>Tratamiento de la mala circulación arterial: dolor al caminar (claudicación), pies fríos y obstrucciones por aterosclerosis.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20una%20valoraci%C3%B3n%20por%20mala%20circulaci%C3%B3n%20arterial." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-users"/></svg></span>
-                        <h3>Malformaciones vasculares</h3>
+                        <h3><a href="/tratamientos/malformaciones-vasculares">Malformaciones vasculares</a></h3>
                         <p>Atención especializada de anomalías vasculares congénitas en niños y adultos, con tratamiento mínimamente invasivo.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20informaci%C3%B3n%20sobre%20malformaciones%20vasculares." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-syringe"/></svg></span>
-                        <h3>Puerto subcutáneo</h3>
+                        <h3><a href="/tratamientos/puerto-subcutaneo">Puerto subcutáneo</a></h3>
                         <p>Colocación segura de catéteres implantables para quimioterapia y tratamientos intravenosos prolongados.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20colocaci%C3%B3n%20de%20un%20puerto%20subcut%C3%A1neo." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
                     <article class="service reveal">
                         <span class="ic"><svg class="i"><use href="#i-monitor"/></svg></span>
-                        <h3>Eco Doppler vascular</h3>
+                        <h3><a href="/tratamientos/eco-doppler-vascular">Eco Doppler vascular</a></h3>
                         <p>Ecografía que muestra el flujo de la sangre en venas y arterias: la base de un diagnóstico preciso y sin dolor.</p>
                         <a href="https://wa.me/593998340502?text=Hola%20Dr.%20Gavilanes%2C%20quisiera%20agendar%20un%20Eco%20Doppler%20vascular." target="_blank" rel="noopener">Consultar <svg class="i"><use href="#i-arrow"/></svg></a>
                     </article>
@@ -939,10 +941,10 @@
                 <div>
                     <h4>Tratamientos</h4>
                     <ul>
-                        <li><a href="#tratamientos">Várices con endoláser</a></li>
-                        <li><a href="#tratamientos">Pie diabético</a></li>
-                        <li><a href="#tratamientos">Trombosis venosa</a></li>
-                        <li><a href="#tratamientos">Enfermedad arterial</a></li>
+                        <li><a href="/tratamientos/varices-endolaser">Várices con endoláser</a></li>
+                        <li><a href="/tratamientos/pie-diabetico">Pie diabético</a></li>
+                        <li><a href="/tratamientos/trombosis-venosa">Trombosis venosa</a></li>
+                        <li><a href="/tratamientos/enfermedad-arterial">Enfermedad arterial</a></li>
                     </ul>
                 </div>
                 <div>
