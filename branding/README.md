@@ -48,10 +48,9 @@ Las fuentes (Plus Jakarta Sans e Inter, licencia OFL) están en `manual/src/font
 
 ## Dónde se usa en el sitio
 
-- `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `img/icon-*.png` = `assets/app-icon`
+- `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `img/icon-*.png` = `assets/app-icon` (PNG cuadrados, sin esquinas redondeadas)
+- `img/og-dr-patricio-gavilanes.jpg` (1200 × 630): isotipo, nombre, especialidad y foto; se cita con `?v=2` para refrescar la caché de redes
 - Logo del menú y del pie en `index.html`: símbolo `#i-logo` (misma geometría que `logos.py`)
 
 Si cambias el logo: edita `logos.py`, regenera y actualiza el símbolo `#i-logo` y los íconos.
 
-> **Pendiente (nov-2026):** el sitio todavía usa el logo y los colores de la v1.0 (favicon, `#i-logo`,
-> imagen OG, Fraunces). Pasarlo a la v2.0 es un cambio aparte del sitio.
