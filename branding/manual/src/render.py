@@ -26,9 +26,9 @@ png.mkdir(exist_ok=True)
 page = HERE / '_logo.html'
 for svg in sorted(ASSETS.glob('*.svg')):
     txt = svg.read_text(encoding='utf-8')
-    w = int(txt.split('width="')[1].split('"')[0])
-    h = int(txt.split('height="')[1].split('"')[0])
-    k = 1 if svg.stem == 'app-icon' else 4  # isotipos y logos a 4x; el ícono ya mide 512
+    w = round(float(txt.split('width="')[1].split('"')[0]))
+    h = round(float(txt.split('height="')[1].split('"')[0]))
+    k = 1  # los SVG ya salen a 4x del original (logos.py); el ícono mide 512
     page.write_text(f'<html><body style="margin:0;background:transparent"><img src="{svg.as_uri()}" '
                     f'style="width:{w * k}px;height:{h * k}px;display:block"></body></html>', encoding='utf-8')
     shot(page.as_uri(), w * k, h * k, str(png / f'{svg.stem}.png'))
