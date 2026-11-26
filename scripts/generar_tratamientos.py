@@ -137,7 +137,7 @@ def pagina(t):
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="author" content="Dr. Patricio Gavilanes">
     <link rel="canonical" href="{url}">
-    <meta name="theme-color" content="#0B1F3A">
+    <meta name="theme-color" content="#14205F">
     <meta property="fb:app_id" content="1133083328336580">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="es_EC">
@@ -145,20 +145,20 @@ def pagina(t):
     <meta property="og:url" content="{url}">
     <meta property="og:title" content="{e(t['titulo'])}">
     <meta property="og:description" content="{e(t['descripcion'])}">
-    <meta property="og:image" content="{SITIO}/img/og-dr-patricio-gavilanes.jpg">
+    <meta property="og:image" content="{SITIO}/img/og-dr-patricio-gavilanes.jpg?v=2">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{e(t['titulo'])}">
     <meta name="twitter:description" content="{e(t['descripcion'])}">
-    <meta name="twitter:image" content="{SITIO}/img/og-dr-patricio-gavilanes.jpg">
+    <meta name="twitter:image" content="{SITIO}/img/og-dr-patricio-gavilanes.jpg?v=2">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script type="application/ld+json">{json.dumps(esquema, ensure_ascii=False).replace('<', '\\u003c')}</script>
     {ESTILO}{EXTRA}
 </head>
