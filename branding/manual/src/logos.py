@@ -1,13 +1,18 @@
 """Genera el sistema de logos del Dr. Patricio Gavilanes como SVG con el texto en trazos.
 
 Uso: python branding/manual/src/logos.py  ->  escribe en branding/assets/
-Fuentes en ./fonts (Fraunces e Inter, Google Fonts, licencia OFL).
+Fuentes en ./fonts (Plus Jakarta Sans e Inter, Google Fonts, licencia OFL).
 
-El isotipo es una V formada por dos vasos sanguíneos que se ramifican: la arteria en
-rojo (izquierda) y la vena en azul (derecha). Se unen abajo, como la circulación que
-el doctor cuida. La V es también la inicial de "Vascular".
-Todo vive en una caja de 100 x 100.
+Es la versión vectorial del logo que el doctor ya usa en toda su publicidad
+("Medicina Vascular"): dos figuras, una roja y una azul, con las piernas en alto
+(la postura que mejora el retorno venoso) bajo una nube de puntos rojos y azules,
+los glóbulos de la circulación. Arriba, en arco, "Medicina Vascular"; debajo, el nombre,
+"CIRUJANO VASCULAR & ENDOVASCULAR" y el lema "CUIDA TU CIRCULACIÓN".
+
+Las coordenadas del símbolo están en los píxeles de la imagen original (242 x 187),
+así que cada punto y cada figura quedan donde estaban.
 """
+from math import cos, sin, radians, atan2
 from pathlib import Path
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
@@ -18,105 +23,220 @@ HERE = Path(__file__).parent
 OUT = HERE.parent.parent / 'assets'
 OUT.mkdir(parents=True, exist_ok=True)
 
-# Paleta
-NOCHE = '#0B1F3A'     # azul noche: nombre, fondos oscuros
-ROJO = '#C81E34'      # rojo arteria: rama izquierda, acentos
-ROJO_VIVO = '#E23A50' # rojo arteria sobre fondo oscuro
-AZUL = '#1D4E89'      # azul vena: rama derecha
-GRIS = '#64748B'      # descriptor sobre fondo claro
-NIEBLA = '#AFBED6'    # descriptor sobre fondo oscuro
+# Paleta (muestreada de la imagen original y llevada a su tono limpio)
+MARINO = '#14205F'    # "Medicina", nombre, lema
+AZUL = '#1733A0'      # figura y puntos azules
+ROJO = '#D11B24'      # "Vascular", figura y puntos rojos, especialidad
+# Sobre fondo marino
+AZUL_CLARO = '#8EA6FF'
+ROJO_VIVO = '#FF4B53'
 BLANCO = '#FFFFFF'
 NEGRO = '#000000'
 
-FR = instantiateVariableFont(TTFont(HERE / 'fonts' / 'Fraunces-VF.ttf'),
-                             {'wght': 600, 'opsz': 72, 'SOFT': 0, 'WONK': 0})
-INTER = instantiateVariableFont(TTFont(HERE / 'fonts' / 'Inter-VF.ttf'), {'wght': 600, 'opsz': 14})
+FONTS = HERE / 'fonts'
+JAKARTA = instantiateVariableFont(TTFont(FONTS / 'PlusJakartaSans-VF.ttf'), {'wght': 800})
+INTER_B = instantiateVariableFont(TTFont(FONTS / 'Inter-VF.ttf'), {'wght': 700, 'opsz': 14})
+INTER_XB = instantiateVariableFont(TTFont(FONTS / 'Inter-VF.ttf'), {'wght': 800, 'opsz': 14})
+ITALICA = 0.2  # inclinación de las letras en arco y del lema (tan del ángulo, ~11°)
 
 
-def text_path(font, text, size, x=0.0, y=0.0, anchor='start', tracking=0.0):
+def fmt(v):
+    return f'{v:.2f}'.rstrip('0').rstrip('.')
+
+
+def text_path(font, text, size, x=0.0, y=0.0, anchor='start', tracking=0.0, skew=0.0):
     """Devuelve (d, ancho) del texto en trazos, con la línea base en y. tracking en em."""
-    gs = font.getGlyphSet()
-    cmap = font.getBestCmap()
+    gs, cmap = font.getGlyphSet(), font.getBestCmap()
+    pen = SVGPathPen(gs, ntos=fmt)
     s = size / font['head'].unitsPerEm
     names = [cmap[ord(c)] for c in text]
     adv = [gs[n].width * s + tracking * size for n in names]
     width = sum(adv) - tracking * size
     if anchor == 'middle':
         x -= width / 2
-    pen = SVGPathPen(gs, ntos=lambda v: f'{v:.2f}'.rstrip('0').rstrip('.'))
     cx = x
     for n, a in zip(names, adv):
-        gs[n].draw(TransformPen(pen, (s, 0, 0, -s, cx, y)))
+        gs[n].draw(TransformPen(pen, (s, 0, s * skew, -s, cx, y)))
         cx += a
     return pen.getCommands(), width
 
 
-# ── Isotipo (caja 100 x 100) ────────────────────────────────────────────────
-ARTERIA = ('M24 12C24 44 38 64 50 88', 'M28 48C20 44 14 36 12 26')
-VENA = ('M76 12C76 44 62 64 50 88', 'M72 48C80 44 86 36 88 26')
-TRONCO, RAMA = 9, 6
+def line(font, parts, size, cx, y, tracking=0.0, skew=0.0):
+    """Línea centrada en cx con tramos de distinto color: [(texto, color), ...]."""
+    total = text_path(font, ''.join(t for t, _ in parts), size, tracking=tracking)[1]
+    x, out = cx - total / 2, ''
+    for t, col in parts:
+        d, w = text_path(font, t, size, x, y, tracking=tracking, skew=skew)
+        out += f'<path fill="{col}" d="{d}"/>'
+        x += w + tracking * size
+    return out
 
 
-def mark(art, ven, ox=0.0, oy=0.0, k=1.0):
-    def vaso(d, color):
-        return ''.join(f'<path d="{p}" fill="none" stroke="{color}" stroke-width="{w}" '
-                       f'stroke-linecap="round"/>' for p, w in zip(d, (TRONCO, RAMA)))
-    # La vena se dibuja primero para que la arteria quede delante en la unión.
-    return f'<g transform="translate({ox} {oy}) scale({k})">{vaso(VENA, ven)}{vaso(ARTERIA, art)}</g>'
+def fit(font, text, width, tracking=0.0):
+    """Tamaño de letra para que el texto mida width."""
+    return width / text_path(font, text, 1.0, tracking=tracking)[1]
 
 
-def svg(w, h, body, label='Dr. Patricio Gavilanes'):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-            f'role="img" aria-label="{label}">{body}</svg>\n')
+def arc_text(font, parts, size, center, radius, mid_deg, tracking=0.0, skew=0.0):
+    """Texto sobre un arco (por fuera del círculo), centrado en el ángulo mid_deg.
+    parts = [(texto, color), ...]. Devuelve el SVG de los trazos."""
+    gs, cmap = font.getGlyphSet(), font.getBestCmap()
+    s = size / font['head'].unitsPerEm
+    glyphs = [(cmap[ord(ch)], color) for txt, color in parts for ch in txt]
+    adv = [gs[n].width * s + tracking * size for n, _ in glyphs]
+    total = sum(adv) - tracking * size
+    theta = radians(mid_deg) - total / radius / 2
+    out, cum = {}, 0.0
+    for (n, color), a in zip(glyphs, adv):
+        g = a - tracking * size
+        t = theta + (cum + g / 2) / radius
+        phi = t + radians(90)
+        px, py = center[0] + radius * cos(t), center[1] + radius * sin(t)
+        c, sn = cos(phi), sin(phi)
+        m = (s * c, s * sn, s * skew * c + s * sn, s * skew * sn - s * c,
+             px - c * g / 2, py - sn * g / 2)
+        pen = out.setdefault(color, SVGPathPen(gs, ntos=fmt))
+        gs[n].draw(TransformPen(pen, m))
+        cum += a
+    return ''.join(f'<path fill="{col}" d="{p.getCommands()}"/>' for col, p in out.items())
 
 
-NOMBRE = 'Dr. Patricio Gavilanes'
-DESCRIPTOR = 'CIRUGÍA VASCULAR Y ENDOVASCULAR'
-
-# ── Horizontal: isotipo + nombre + descriptor ───────────────────────────────
-H_ISO = 76
-nombre_d, nombre_w = text_path(FR, NOMBRE, 40, 0, 0)
-desc_d, desc_w = text_path(INTER, DESCRIPTOR, 11.4, 0, 0, tracking=0.16)
-TX = H_ISO + 18
-H_W = round(TX + max(nombre_w, desc_w) + 4)
-H_H = 84
-
-
-def horizontal(art, ven, nombre, desc):
-    n, _ = text_path(FR, NOMBRE, 40, TX, 46)
-    d, _ = text_path(INTER, DESCRIPTOR, 11.4, TX + 1.5, 68, tracking=0.16)
-    return svg(H_W, H_H, mark(art, ven, 0, 4, H_ISO / 100) +
-               f'<path fill="{nombre}" d="{n}"/><path fill="{desc}" d="{d}"/>')
+# ── Isotipo: nube de puntos + dos figuras con las piernas en alto ──────────
+# (x, y, radio, color 'R' o 'A') en píxeles de la imagen original
+PUNTOS = [
+    (94.0, 35.0, 3.6, 'R'), (108.0, 33.5, 2.3, 'A'), (116.5, 39.0, 3.9, 'R'), (139.5, 38.3, 2.1, 'A'),
+    (126.8, 44.7, 4.0, 'A'), (146.5, 47.0, 3.0, 'A'), (157.0, 50.5, 2.1, 'R'), (86.5, 49.0, 3.5, 'R'),
+    (97.8, 51.5, 2.3, 'A'), (79.0, 59.0, 3.6, 'R'), (112.5, 60.0, 4.7, 'R'), (122.5, 62.0, 3.1, 'R'),
+    (136.5, 59.5, 2.6, 'A'), (146.5, 65.5, 3.1, 'R'), (65.0, 70.0, 3.5, 'A'), (94.5, 72.0, 5.0, 'R'),
+    (130.0, 78.5, 2.7, 'A'), (142.5, 78.5, 3.1, 'R'), (157.5, 78.5, 3.1, 'R'), (84.0, 81.0, 4.3, 'A'),
+    (75.0, 93.0, 4.4, 'A'), (93.5, 97.5, 6.0, 'A'),
+]
 
 
-# ── Vertical: isotipo arriba, nombre y descriptor centrados ─────────────────
-V_W = round(max(nombre_w, desc_w) + 16)
-V_H = 222
+def circle_d(x, y, r):
+    return (f'M{fmt(x - r)} {fmt(y)}a{fmt(r)} {fmt(r)} 0 1 0 {fmt(2 * r)} 0'
+            f'a{fmt(r)} {fmt(r)} 0 1 0 {fmt(-2 * r)} 0Z')
 
 
-def vertical(art, ven, nombre, desc):
-    n, _ = text_path(FR, NOMBRE, 40, V_W / 2, 168, 'middle')
-    d, _ = text_path(INTER, DESCRIPTOR, 11.4, V_W / 2, 196, 'middle', tracking=0.16)
-    return svg(V_W, V_H, mark(art, ven, V_W / 2 - 60, 6, 1.2) +
-               f'<path fill="{nombre}" d="{n}"/><path fill="{desc}" d="{d}"/>')
+def limb(p0, p1, w0, w1):
+    """Trazo que se afina de w0 a w1 (anchos totales) con extremos redondeados."""
+    (x0, y0), (x1, y1) = p0, p1
+    a = atan2(y1 - y0, x1 - x0)
+    nx, ny = -sin(a), cos(a)
+    r0, r1 = w0 / 2, w1 / 2
+    pts = [(x0 + nx * r0, y0 + ny * r0), (x1 + nx * r1, y1 + ny * r1),
+           (x1 - nx * r1, y1 - ny * r1), (x0 - nx * r0, y0 - ny * r0)]
+    return 'M' + ' L'.join(f'{fmt(x)} {fmt(y)}' for x, y in pts) + 'Z' + circle_d(x0, y0, r0) + circle_d(x1, y1, r1)
+
+
+# Figura roja: cadera abajo, piernas abiertas en V hacia arriba, brazo de apoyo y mano al suelo
+CADERA_R = (106.0, 100.0)
+FIGURA_ROJA = [
+    limb(CADERA_R, (95.6, 79.6), 8.0, 3.6),
+    limb(CADERA_R, (116.6, 78.6), 6.8, 3.4),
+    limb(CADERA_R, (105.6, 117.6), 7.4, 4.0),
+    limb((105.8, 118.4), (117.0, 120.0), 3.2, 1.6),
+]
+# Figura azul: delante de la roja, un brazo extendido a la derecha y la cabeza junto al suelo
+CADERA_A = (116.4, 94.0)
+FIGURA_AZUL = [
+    limb(CADERA_A, (102.6, 80.2), 7.2, 3.4),
+    limb(CADERA_A, (123.2, 73.4), 7.0, 3.4),
+    limb((117.4, 98.5), (137.4, 89.6), 5.2, 2.6),
+    limb(CADERA_A, (117.6, 115.6), 7.6, 4.0),
+    limb((117.6, 116.4), (125.0, 116.4), 2.6, 1.6),
+    circle_d(129.4, 112.2, 4.7),
+]
+
+
+def simbolo(rojo, azul, borde=None):
+    """Grupo SVG del isotipo en coordenadas originales. borde: color del fondo, que separa
+    la figura azul de la roja para que se lean como dos figuras (None en una sola tinta)."""
+    col = {'R': rojo, 'A': azul}
+    dots = ''.join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="{col[c]}"/>' for x, y, r, c in PUNTOS)
+    roja = f'<path fill="{rojo}" d="{"".join(FIGURA_ROJA)}"/>'
+    azul_d = ''.join(FIGURA_AZUL)
+    sep = (f'<path fill="{borde}" stroke="{borde}" stroke-width="1.2" stroke-linejoin="round" d="{azul_d}"/>'
+           if borde else '')
+    return f'{dots}{roja}{sep}<path fill="{azul}" d="{azul_d}"/>'
+
+
+# Caja del isotipo (coordenadas originales)
+ISO_X, ISO_Y, ISO_W, ISO_H = 58.0, 28.0, 106.0, 96.0
+K = 4  # el original mide ~190 px de ancho; los SVG salen a 4x
+
+
+def svg(w, h, body, label='Dr. Patricio Gavilanes · Medicina Vascular'):
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{fmt(w)}" height="{fmt(h)}" '
+            f'viewBox="0 0 {fmt(w)} {fmt(h)}" role="img" aria-label="{label}">{body}</svg>\n')
+
+
+def colocar(body, ox, oy, k):
+    """Lleva un grupo en coordenadas originales a (ox, oy) con escala k."""
+    return f'<g transform="translate({fmt(ox)} {fmt(oy)}) scale({fmt(k)})">{body}</g>'
+
+
+NOMBRE = 'Dr. Patricio Gavilanes C.'
+ESPECIALIDAD = 'CIRUJANO VASCULAR & ENDOVASCULAR'
+LEMA = '“CUIDA TU CIRCULACIÓN”'
+
+# ── Logo principal (vertical): como el original ────────────────────────────
+# Medidas tomadas de la imagen original: arco con centro (112, 106) y radio 86 que va
+# de -149° a -35°; nombre, especialidad y lema centrados en x = 113.
+ARCO_C, ARCO_R, ARCO_MID, ARCO_SPAN = (112.0, 106.0), 86.0, -92.0, 114.0
+CX = 113.0
+V_X0, V_Y0, V_W, V_H = 6.0, 2.0, 214.0, 174.0
+ESP_A, ESP_B = 'CIRUJANO VASCULAR & ', 'ENDOVASCULAR'
+
+
+def vertical(marino, azul, rojo, borde):
+    from math import pi
+    arco_txt = 'Medicina Vascular'
+    size = fit(JAKARTA, arco_txt, ARCO_R * ARCO_SPAN * pi / 180, tracking=0.04)
+    arco = arc_text(JAKARTA, [('Medicina ', marino), ('Vascular', rojo)], size,
+                    ARCO_C, ARCO_R, ARCO_MID, tracking=0.04, skew=ITALICA)
+    n = line(INTER_B, [(NOMBRE, marino)], fit(INTER_B, NOMBRE, 162), CX, 133.0)
+    e = line(INTER_XB, [(ESP_A, marino), (ESP_B, rojo)], fit(INTER_XB, ESPECIALIDAD, 203, 0.01), CX, 151.6, tracking=0.01)
+    lema = line(INTER_XB, [(LEMA, marino)], fit(INTER_XB, LEMA, 125, 0.02), CX, 170.4, tracking=0.02, skew=ITALICA)
+    body = arco + simbolo(rojo, azul, borde) + n + e + lema
+    return svg(V_W * K, V_H * K, colocar(body, -V_X0 * K, -V_Y0 * K, K))
+
+
+# ── Horizontal: isotipo a la izquierda, textos a la derecha ─────────────────
+def horizontal(marino, azul, rojo, borde):
+    tx = ISO_W + 12
+    n, nw = text_path(INTER_B, NOMBRE, 21, tx, 41)
+    _, ew = text_path(INTER_XB, ESPECIALIDAD, 12.2, tracking=0.01)
+    e = line(INTER_XB, [(ESP_A, marino), (ESP_B, rojo)], 12.2, tx + 1 + ew / 2, 61, tracking=0.01)
+    lema, lw = text_path(INTER_XB, LEMA, 11.0, tx + 1, 80, tracking=0.03, skew=ITALICA)
+    w, h = tx + max(nw, ew, lw) + 4, ISO_H
+    body = (colocar(simbolo(rojo, azul, borde), -ISO_X, -ISO_Y, 1) +
+            f'<path fill="{marino}" d="{n}"/>{e}<path fill="{marino}" d="{lema}"/>')
+    return svg(w * K, h * K, f'<g transform="scale({K})">{body}</g>')
+
+
+def isotipo(azul, rojo, borde):
+    return svg(ISO_W * K, ISO_H * K, colocar(simbolo(rojo, azul, borde), -ISO_X * K, -ISO_Y * K, K))
 
 
 VERSIONES = {
-    # nombre: (arteria, vena, nombre, descriptor)
-    'claro': (ROJO, AZUL, NOCHE, GRIS),
-    'oscuro': (ROJO_VIVO, BLANCO, BLANCO, NIEBLA),
-    'blanco': (BLANCO, BLANCO, BLANCO, BLANCO),
-    'negro': (NEGRO, NEGRO, NEGRO, NEGRO),
+    # nombre: (marino, azul, rojo, color del fondo para separar las figuras)
+    'claro': (MARINO, AZUL, ROJO, BLANCO),
+    'oscuro': (BLANCO, AZUL_CLARO, ROJO_VIVO, MARINO),
+    'blanco': (BLANCO, BLANCO, BLANCO, None),
+    'negro': (NEGRO, NEGRO, NEGRO, None),
 }
 
-for nombre, (a, v, n, d) in VERSIONES.items():
-    (OUT / f'horizontal-{nombre}.svg').write_text(horizontal(a, v, n, d), encoding='utf-8')
-    (OUT / f'vertical-{nombre}.svg').write_text(vertical(a, v, n, d), encoding='utf-8')
-    (OUT / f'isotipo-{nombre}.svg').write_text(svg(100, 100, mark(a, v)), encoding='utf-8')
+for nombre, (m, a, r, b) in VERSIONES.items():
+    (OUT / f'vertical-{nombre}.svg').write_text(vertical(m, a, r, b), encoding='utf-8')
+    (OUT / f'horizontal-{nombre}.svg').write_text(horizontal(m, a, r, b), encoding='utf-8')
+    (OUT / f'isotipo-{nombre}.svg').write_text(isotipo(a, r, b), encoding='utf-8')
 
-# Ícono de app / avatar / favicon: caja azul noche, vasos en rojo vivo y blanco
+# Ícono / avatar / favicon: el isotipo sobre blanco, en un cuadrado redondeado
+k = 400 / max(ISO_W, ISO_H)
 (OUT / 'app-icon.svg').write_text(
-    svg(512, 512, f'<rect width="512" height="512" rx="116" fill="{NOCHE}"/>' +
-        mark(ROJO_VIVO, BLANCO, 76, 72, 3.6)), encoding='utf-8')
+    svg(512, 512, '<rect width="512" height="512" rx="116" fill="#FFFFFF"/>' +
+        colocar(simbolo(ROJO, AZUL, BLANCO), 256 - (ISO_X + ISO_W / 2) * k, 256 - (ISO_Y + ISO_H / 2) * k, k)),
+    encoding='utf-8')
 
-print('logos:', len(list(OUT.glob('*.svg'))), '| horizontal', H_W, 'x', H_H, '| vertical', V_W, 'x', V_H)
+print('logos:', len(list(OUT.glob('*.svg'))))
